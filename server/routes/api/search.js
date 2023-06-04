@@ -1,6 +1,11 @@
 // Search for locations
 
-const fetch = require('node-fetch');
+let fetch;
+try {
+  fetch = require('node-fetch');
+} catch (err) {
+  fetch = require('node-fetch').default;
+}
 const generateWebAppURL = require('server/utils').generateWebAppURL;
 
 module.exports = (app) => {
